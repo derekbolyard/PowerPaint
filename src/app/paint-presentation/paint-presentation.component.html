@@ -1,0 +1,48 @@
+<div *ngIf="inPresentationMode" class="presentation-view">
+    <img [src]="pages[currentPageIndex]" class="full-screen-image">
+    <button mat-raised-button (click)="endPresentation()">Exit Presentation</button>
+</div>
+<span style="color: white;">{{inPresentationMode}}</span>
+<div *ngIf="!inPresentationMode" style="height: 100%">
+    <mat-toolbar color="primary">
+        <div class="toolbar-left">
+            <button mat-raised-button (click)="addSlide()" color="primary">
+                <i class="material-icons">add</i> Add Paint
+            </button>
+            <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" multiple
+                style="display: none;">
+            <button mat-raised-button (click)="fileInput.click()" color="accent">Upload Paint(s)</button>
+        </div>
+
+        <span class="toolbar-title">
+            <h1>Power Paint</h1>
+        </span>
+
+        <!-- Placeholder for potential right-aligned items -->
+        <div class="toolbar-right">
+            <button mat-raised-button (click)="startPresentation()">Present</button>
+        </div>
+    </mat-toolbar>
+
+    <div class="presentation-container">
+        <mat-sidenav-container class="sidenav-container">
+            <mat-sidenav #sidenav mode="side" opened="true" class="sidenav">
+                <div cdkDropList class="pages-list" (cdkDropListDropped)="drop($event)">
+                    <div class="page-container" *ngFor="let page of pages; let i = index" cdkDrag>
+                        <span class="page-index">{{ i + 1 }}.</span>
+                        <div class="page-preview">
+                            <img [src]="page" class="page-image" (click)="selectPage(i)">
+                        </div>
+                    </div>
+                </div>
+            </mat-sidenav>
+            <mat-sidenav-content>
+                <div class="page-view-container">
+                    <div class="page-view">
+                        <img [src]="selectedPage" alt="Selected Page" *ngIf="selectedPage">
+                    </div>
+                </div>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </div>
+</div>

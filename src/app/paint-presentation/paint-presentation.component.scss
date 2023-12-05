@@ -1,0 +1,139 @@
+.presentation-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.sidenav-container {
+    height: 100%;
+    width: 100%;
+}
+
+.sidenav {
+    width: 200px;
+}
+
+.page-view-container {
+    flex-grow: 1;
+    /* Take up the remaining space */
+    position: relative;
+    /* For absolute positioning of children */
+    height: 100%;
+    /* Add a minimum height */
+    width: 100%
+}
+
+.page-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-sidenav-container {
+    background-color: lightgrey;
+}
+
+.page-view img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.page-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.page-preview {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.page-index {
+    margin-right: 10px;
+    font-weight: bold;
+    /* Additional styling as needed */
+}
+
+.page-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pages-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+mat-toolbar {
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toolbar-left,
+.toolbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.toolbar-left,
+.toolbar-right,
+button {
+    display: flex;
+    align-items: center;
+    margin-right: 20px
+}
+
+.toolbar-title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.toolbar-title h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+// presentation view
+
+.presentation-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure it's above everything else */
+}
+
+.full-screen-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.presentation-view button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1001; /* Above the image */
+}
